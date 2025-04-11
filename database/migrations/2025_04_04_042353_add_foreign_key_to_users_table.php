@@ -14,7 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->foreignId('role_id')->reference('id')->on('roles')->onDelete('restrict');
+            $table->foreign('role_id')->references('id')->on('roles')->onDelete('restrict');
             //
         });
     }
@@ -27,7 +27,7 @@ return new class extends Migration
     public function down()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->dropForeign(['role_ide']);
+            $table->dropForeign(['role_id']);
             //
         });
     }
