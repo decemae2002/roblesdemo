@@ -4,6 +4,7 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;
+use Symfony\Component\HttpFoundation\Response;
 
 class Role
 {
@@ -16,6 +17,7 @@ class Role
      */
     public function handle(Request $request, Closure $next,$role)
     {
+        dd($role);
         if($request->user()->role !==$role){
             return redirect('dashboard');
 
